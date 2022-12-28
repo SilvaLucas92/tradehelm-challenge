@@ -20,7 +20,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 const Form = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [modItem, setModItem] = React.useState<any>(null);
-  const { list, handleAdd, onDelete, handleEdit, isLoading } =
+  const { list, handleAdd, onDelete, handleEdit, isLoading, deleteAll } =
     useLocalStorage();
 
   const onEdit = (itm: Item) => {
@@ -74,7 +74,7 @@ const Form = () => {
           <Button w="full" colorScheme="blue" onClick={() => setOpen(true)}>
             Add Item
           </Button>
-          <Button w="full" variant="outline" colorScheme="red">
+          <Button w="full" variant="outline" colorScheme="red" onClick={deleteAll}>
             Delete All
           </Button>
         </VStack>
